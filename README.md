@@ -1,5 +1,5 @@
 # fairysmell
-draw system
+update system
 ```
 let 
 $waitcount=0  //if $waitcount>0, keyblock
@@ -25,13 +25,13 @@ $waitcount=0  //if $waitcount>0, keyblock
 //flowmes(mes) //message input funciton. dont direct the $mesary
 //draw() //main
 function fairysmell(){
- draw();
+ update();
 }
 function flowmes(mes){
  if(!mes) mes="\n\n\n"//clear
  return mes.split('\n').map(d=>$mesbuffer.push(d))
 }
-function draw(timestamp){
+function update(timestamp){
  if($mesbuffer.length){
   $waitcount++;
   $mesary.push($mesbuffer.shift())
