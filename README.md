@@ -14,6 +14,8 @@ let
 $waitcount=0  //if $waitcount>0, keyblock
 ,$mode='mes'
 ,$trick=0
+,$_trick=0
+,$skipframe=4 //skipfame 1 to $skipmax-1. dont 0
 ,$image
 ,$imagename
 ,$mesary=[]
@@ -63,6 +65,10 @@ function keycall(caller){
 ;['dwire','dimage','dhint','dparty','dmap','dmessage','dselect','dkey'].map(d=>this[d]=function stab(){})
 //////////////////////
 function update(timestamp){
+ $_trick++
+ if(!($_trick%$skipframe))return requestAnimationFrame(draw);
+ $trick++;
+ $waitcount=Math.max(--$waitcount,0)
  if($mesbuffer.length){
   $waitcount++;
   $mesary.push($mesbuffer.shift())
@@ -78,8 +84,6 @@ function update(timestamp){
  if($mode==='sel')dselect($sel,$seln,$selname)
  dkey($key)
  ////
- $trick++;
- $waitcount=Math.max(--$waitcount,0)
  return requestAnimationFrame(draw);
 }
 //////////////////////
