@@ -45,7 +45,8 @@ function update(timestamp){
  dparty($party,$partyn)
  dmap($map,$x,$y,$z,$v)
  if($mode==='mes')dmessage($mesary)
- if($mode==='sel')dselect($sel,$seln,$selname) 
+ if($mode==='sel')dselect($sel,$seln,$selname)
+ dkey($key)
  //
  $trick++;
  $waitcount=Math.max(--$waitcount,0)
