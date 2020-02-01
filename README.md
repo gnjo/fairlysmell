@@ -8,6 +8,7 @@ $waitcount=0  //if wait count>0, keyblock
 ,$image
 ,$imagename
 ,$mes
+,$mesbuffer=[]
 ,$hint
 ,$sel
 ,$seln
@@ -23,9 +24,12 @@ $waitcount=0  //if wait count>0, keyblock
 function firlysmell(){
  draw();
 }
-///
+//
+function flowmes(mes){
+ return mes.split('\n').map(d=>$mesbuffer.push(d))
+}
 function draw(timestamp){
-
+ 
  dwire($fmap)
  dimage($image,$imagename) 
  dhint($hint)
@@ -35,6 +39,7 @@ function draw(timestamp){
  if($mode==='sel')dselect($sel,$seln) 
  //
  $trick++;
+ $waitcount=Math.max(--$waitcount,0)
  return requestframestep(draw);
 }
 
