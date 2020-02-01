@@ -62,6 +62,7 @@ function keyconfig(str){
  }
 }
 function keycall(caller){
+ $key=''//oldkey reset
  let el=document.documentElement,del=()=>{el.onkeydown=void 0}
  //caller(k,del) //if use end, need the del()
  el.onkeydown=function(ev){
