@@ -1,7 +1,14 @@
 
 var
  $ctx
-,$fontsize=16
+,$fontb=14 //big
+,$fonts=9 //small
+,$wirew=3 //wirewidth
+,$color1='white' //
+,$color2='black' 
+,$color3='#0097a7' //cyberblue
+,$color4='#eeff41' //lime
+,$color5='rgba(0, 0, 0, 0.76)' //#000000c1 shadow
 
 function isbg(img){
  return (img.height>$ctx.canvas.height)?true:false
@@ -19,7 +26,7 @@ function dimage(d,str){
  if(isbg(img)){
   let w=$ctx.canvas.width,h=$ctx.canvas.height
   $ctx.drawImage(img,0,0,w,h)
-  $ctx.fillText(str,$fontsize,$fontsize)
+  $ctx.fillText(str,$fontb,$fontb)
   return;
  }
  //center
