@@ -3,6 +3,7 @@ update system
 ```
 //pug
 script(src="https://gnjo.github.io/fairysmell/fairysmell.js")
+script(src="https://gnjo.github.io/fairysmell/fairysmell.d.js")
 ```
 ```
 //usage
