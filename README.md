@@ -42,7 +42,7 @@ function draw(timestamp){
  dparty($party,$partyn)
  dmap($map,$x,$y,$z,$v)
  if($mode==='mes')dmessage($mesary)
- if($mode==='sel')dselect($sel,$seln) 
+ if($mode==='sel')dselect($sel,$seln,$selname) 
  //
  $trick++;
  $waitcount=Math.max(--$waitcount,0)
