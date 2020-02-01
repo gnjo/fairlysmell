@@ -66,7 +66,7 @@ function keycall(caller){
 //////////////////////
 function update(timestamp){
  $_trick++
- if(!($_trick%$skipframe))return requestAnimationFrame(draw);
+ if(!($_trick%$skipframe))return requestAnimationFrame(update);
  $trick++;
  $waitcount=Math.max(--$waitcount,0)
  if($mesbuffer.length){
@@ -84,7 +84,7 @@ function update(timestamp){
  if($mode==='sel')dselect($sel,$seln,$selname)
  dkey($key)
  ////
- return requestAnimationFrame(draw);
+ return requestAnimationFrame(update);
 }
 //////////////////////
 ```
