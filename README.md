@@ -36,6 +36,8 @@ $waitcount=0  //if $waitcount>0, keyblock
 ,$key
 //fairysmell() //firstcall start the draw loop
 //flowmes(mes) //message input funciton. dont direct the $mesary
+//keyconfig(str) //^,<,v,>,A,B,X,Y,L,R
+//keycall(caller) //if want the key, call the keycall((k,del)=>{})// use end, need the del();
 function fairysmell(){
  update();
 }
