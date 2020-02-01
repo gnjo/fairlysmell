@@ -21,6 +21,8 @@ $waitcount=0  //if $waitcount>0, keyblock
 ,$fmap //frontmap
 ,$party
 ,$partyn
+,$keyconf
+,$key
 //fairysmell() //firstcall start the draw loop
 //flowmes(mes) //message input funciton. dont direct the $mesary
 //draw() //main
@@ -50,4 +52,21 @@ function update(timestamp){
  return requestframestep(draw);
 }
 
+function keyconfig(str){
+  //$keyconf={37:'<',39:'>',38:'^',40:'v',70:'A',68:'B',65:'X',83:'Y',82:'R',69:'L'}
+  let t="^,<,v,>,A,B,X,Y,L,R".split(',')
+  ,k=keystr.split(',').map(d=>d.toUpperCase().charCodeAt(0))
+  ,keys={}
+  k.map((d,i)=>{ keys[d]=t[i] })
+  return keys
+ }
+}
+function keycall(caller){
+ let el=document.documentElement,del=()=>{el.onkeydown=void 0}
+ //caller(k,del) //if use end, need the del()
+ el.onkeydown=function(ev){
+   if($waitcount||!$keyconf[ev.which])return;
+   $key=$keyconf[ev.which],caller($key,del)
+ }
+}
 ```
