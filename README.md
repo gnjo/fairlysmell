@@ -60,7 +60,7 @@ function keycall(caller){
  }
 }
 /////////////////////
-;['dwire','dimage','dparty','dmap','dkey'].map(d=>this[d]=function stab(){})
+;['dwire','dimage','dhint','dparty','dmap','dmessage','dselect','dkey'].map(d=>this[d]=function stab(){})
 //////////////////////
 function update(timestamp){
  if($mesbuffer.length){
@@ -68,6 +68,7 @@ function update(timestamp){
   $mesary.push($mesbuffer.shift())
   $mesary=$mesary.slice(-4)
  }
+ ////
  dwire($fmap)
  dimage($image,$imagename) 
  dhint($hint)
@@ -76,7 +77,7 @@ function update(timestamp){
  if($mode==='mes')dmessage($mesary)
  if($mode==='sel')dselect($sel,$seln,$selname)
  dkey($key)
- //
+ ////
  $trick++;
  $waitcount=Math.max(--$waitcount,0)
  return requestAnimationFrame(draw);
