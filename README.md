@@ -2,7 +2,8 @@
 draw system
 ```
 let 
- $mode='mes'
+$waitcount=0  //if wait count>0, keyblock
+,$mode='mes'
 ,$trick=0
 ,$image
 ,$imagename
