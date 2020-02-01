@@ -10,9 +10,9 @@ script(src="https://gnjo.github.io/fairysmell/fairysmell.d.js")
 fairysmell()//
 ```
 ```
-let 
+var 
 $waitcount=0  //if $waitcount>0, keyblock
-,$mode='mes'
+,$mode='' //mes or sel or ''
 ,$trick=0
 ,$_trick=0
 ,$skipframe=4 //skipfame 1 to $skipmax-1. dont 0
