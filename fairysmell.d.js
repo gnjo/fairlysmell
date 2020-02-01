@@ -42,6 +42,7 @@ function dimage(d,str){
  //center
  let a=getcenterize(img),x=a[0],y=a[1],y1=a[1]-$fontsize
  $ctx.drawImage(img,x,y)
+ setstyle('dimage',$ctx) 
  $ctx.fillText(str,x,y1)
  return
 }
