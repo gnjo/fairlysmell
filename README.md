@@ -1,6 +1,14 @@
 # fairysmell
 update system
 ```
+//pug
+script(src="https://gnjo.github.io/fairysmell/fairysmell.js")
+```
+```
+//usage
+fairysmell()//
+```
+```
 let 
 $waitcount=0  //if $waitcount>0, keyblock
 ,$mode='mes'
