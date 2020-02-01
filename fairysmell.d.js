@@ -46,13 +46,21 @@ function getlayerinfo(name){
  return $layerinfo(name)
 }
 function setstyle(name,ctx){
-  if(name==='dimage'||name==='dkey'){
+  if(name==='dmessage'){
+   ctx.fillStyle = $color1   
+   return 
+  }
+ if(name==='selected'){
+   ctx.fillStyle = $color4
+   return 
+ }
+ //other
+ //if(name==='dimage'||name==='dkey')
    ctx.fillStyle = $color3
    ctx.font = $fontb+"px monospace";
    //ctx.textAlign = "left";
    //ctx.textBaseline = "top";
-   return;
-  }
+   return; 
 }
 
 function isbg(img){
@@ -98,6 +106,7 @@ function dmap(map,x,y,z,v){
  //N top map
 }
 function dmessage(ary){
+ if(!ary)return;
  let info=getlayerinfo('dmessage')
  let x=info.x,y=info.y;
  setstyle('dmessage',$ctx)
@@ -111,10 +120,12 @@ function dselect(sel,n,head){
  if(!sel)return;
  let cursor='>',max=6,ary=sel.slice(n,n+max),info=getlayerinfo('dselect')
  setstyle('dselect')
- ary=ary.unshift(head+''+n)
+ $ctx.fillText(head+''+n,info.x+$fontb,info.y)
  ary.map((d,i)=>{
-  let c=(c===0)?'':(i==n)?cursor:' '
-  $ctx.fillText(c+d,info.x+$fontb + $fontb*i,info.y)  
+  if(!(i==n%max))return $ctx.fillText(' '+d,info.x+$fontb + $fontb*i,info.y)  
+   setstyle('selected')
+   $ctx.fillText(' '+d,info.x+$fontb + $fontb*i,info.y)     
+   setstyle('dselect')
  })
 }
 function dkey(str){
