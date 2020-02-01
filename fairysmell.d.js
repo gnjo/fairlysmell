@@ -55,20 +55,22 @@ function setstyle(name,ctx){
 }
 
 function isbg(img){
- return (img.height>$ctx.canvas.height)?true:false
+ let h=getlayerinfo('dimage').h
+ return (img.height>h)?true:false
 }
 function getcenterize(img){
- let x=$ctx.canvas.width/2 - img.width/2
- ,y=$ctx.canvas.height/2 - img.height/2
+ let info=getlayerinfo('dwire')
+ let x=info.w/2 - img.width/2
+ ,y=info.w/2 - img.height/2
  return [x,y]
 }
 function dimage(d,str){
  if(!d)return;
  let img=new Image();img.src=d // data:URL
- let w=img.width,h=img.height
+ let info=getlayerinfo('dwire'),w=img.width,h=img.height
  //background or center
  if(isbg(img)){
-  let w=$ctx.canvas.width,h=$ctx.canvas.height
+  let w=info.w,h=info.h
   $ctx.drawImage(img,0,0,w,h)
   setstyle('dimage',$ctx)
   $ctx.fillText(str,$fontb,$fontb)
@@ -76,7 +78,7 @@ function dimage(d,str){
  }
  //center
  let a=getcenterize(img),x=a[0],y=a[1],y1=y-$fontb
- $ctx.drawImage(img,x,y)
+ $ctx.drawImage(img,x,y) //wide fit...
  setstyle('dimage',$ctx) 
  $ctx.fillText(str,x,y1)
  return
