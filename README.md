@@ -7,7 +7,7 @@ $waitcount=0  //if wait count>0, keyblock
 ,$trick=0
 ,$image
 ,$imagename
-,$mes
+,$mesary=[]
 ,$mesbuffer=[]
 ,$hint
 ,$sel
@@ -29,13 +29,17 @@ function flowmes(mes){
  return mes.split('\n').map(d=>$mesbuffer.push(d))
 }
 function draw(timestamp){
- 
+ if($mesbuffer.length){
+  $waitcount++;
+  $mesary.push($mesbuffer.shift())
+  $mesary=$mesary.slice(-4)
+ }
  dwire($fmap)
  dimage($image,$imagename) 
  dhint($hint)
  dparty($party,$partyn)
  dmap($map,$x,$y,$z,$v)
- if($mode==='mes')dmessage($mes)
+ if($mode==='mes')dmessage($mesary)
  if($mode==='sel')dselect($sel,$seln) 
  //
  $trick++;
