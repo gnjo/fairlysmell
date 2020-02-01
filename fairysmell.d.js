@@ -1,8 +1,10 @@
 
 var
- $ctx
-,$fontb=14 //big
-,$fonts=9 //small
+ $gain=10
+,$ctx=makecanvas(35*$gain,24*$gain)
+,$fontb=1.2*$gain //big
+,$fonts=0.9*$gain //small
+,$layerinfo
 ,$wirew=3 //wirewidth
 ,$color1='white' //
 ,$color2='black' 
@@ -10,6 +12,38 @@ var
 ,$color4='#eeff41' //lime
 ,$color5='rgba(0, 0, 0, 0.76)' //#000000c1 shadow
 
+function makecanvas(w,h){
+ let fn={}
+ fn.q=(s,doc=document)=>{return doc.querySelector(s)} 
+ let c=fn.q('canvas')
+ c.width=w,c.height=h
+ return c.getContext('2d');
+}
+function getlayerinfo(name){
+ if($layerinfo)return $layerinfo(name);
+ //x,y,x1,y1 ,w,h,cx,cy
+ let info={},f=(o){
+  Object.keys(o).map(key=>o[key]=o[key]*$gain);
+  o.w =o.x1-o.x
+  o.h=o.y1-o.y
+  o.cx=o.x+o.w/2
+  o.cy=o.y+o.h/2
+  return o
+ }
+ info.dcanvas=f( {x:0,y:0,x1:35,y1:24} )
+ info.dimage=f( {x:11,y:7,x1:15,y1:16} )
+ info.dmes=f( {x:0,y:0,x1:26,y1:6} )
+ info.dsel=f( {x:0,y:11,x1:10,y1:23} )
+ info.dhint=f( {x:0,y:23,x1:26,y1:24} )
+ info.dwire=f( {x:0,y:0,x1:26,y1:23} )
+ info.dmap=f( {x:27,y:0,x1:35,y1:23} )
+ info.dmappos=f( {x:27,y:23,x1:35,y1:24} )
+ info.dparty=f( {x:9,y:16,x1:21,y1:24} )
+ info.dkey=f( {x:25,y:22,x1:26,y1:23} )
+ ;
+ $layerinfo=info;
+ return $layerinfo(name)
+}
 function setstyle(name,ctx){
   if(name==='dimage'||name==='dkey'){
    ctx.fillStyle = $color3
