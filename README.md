@@ -21,7 +21,7 @@ $waitcount=0  //if $waitcount>0, keyblock
 ,$fmap //frontmap
 ,$party
 ,$partyn
-,$keyconf
+,$keyconf=keyconfig('w,a,s,d,j,k,i,l,u,o')
 ,$key
 //fairysmell() //firstcall start the draw loop
 //flowmes(mes) //message input funciton. dont direct the $mesary
