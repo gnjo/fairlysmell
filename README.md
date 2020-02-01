@@ -1,4 +1,4 @@
-# fairlysmell
+# fairysmell
 draw system
 ```
 let 
@@ -20,8 +20,8 @@ $waitcount=0  //if $waitcount>0, keyblock
 ,$fmap //frontmap
 ,$party
 ,$partyn
-//first call firlysmell()
-function firlysmell(){
+//first call fairysmell()
+function fairysmell(){
  draw();
 }
 //
