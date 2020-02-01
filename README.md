@@ -50,7 +50,7 @@ function update(timestamp){
  //
  $trick++;
  $waitcount=Math.max(--$waitcount,0)
- return requestframestep(draw);
+ return requestAnimationFrame(draw);
 }
 
 function keyconfig(str){
