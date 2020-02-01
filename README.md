@@ -55,7 +55,7 @@ function update(timestamp){
 function keyconfig(str){
   //$keyconf={37:'<',39:'>',38:'^',40:'v',70:'A',68:'B',65:'X',83:'Y',82:'R',69:'L'}
   let t="^,<,v,>,A,B,X,Y,L,R".split(',')
-  ,k=keystr.split(',').map(d=>d.toUpperCase().charCodeAt(0))
+  ,k=keystr.split(',').map(d=>if(d.length>1)?d:d.toUpperCase().charCodeAt(0))
   ,keys={}
   k.map((d,i)=>{ keys[d]=t[i] })
   return keys
