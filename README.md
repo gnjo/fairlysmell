@@ -21,7 +21,7 @@ $waitcount=0  //if $waitcount>0, keyblock
 ,$party
 ,$partyn
 //fairysmell() //firstcall start the draw loop
-//flowmes(mes) //message input funciton. dont direct the $mes
+//flowmes(mes) //message input funciton. dont direct the $mesary
 //draw() //main
 function fairysmell(){
  draw();
