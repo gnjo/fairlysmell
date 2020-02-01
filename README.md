@@ -58,7 +58,8 @@ function keycall(caller){
    $key=$keyconf[ev.which],caller($key,del)
  }
 }
-
+/////////////////////
+;['dwire','dimage','dparty','dmap','dkey'].map(d=>this[d]=function stab(){})
 //////////////////////
 function update(timestamp){
  if($mesbuffer.length){
