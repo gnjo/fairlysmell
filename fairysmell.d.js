@@ -10,6 +10,15 @@ var
 ,$color4='#eeff41' //lime
 ,$color5='rgba(0, 0, 0, 0.76)' //#000000c1 shadow
 
+function setstyle(name,ctx){
+  if(name==='dimage'){
+   ctx.fillStyle = $color3
+   ctx.font = $fontb+"px monospace";
+   //ctx.textAlign = "left";
+   //ctx.textBaseline = "top";
+  }
+}
+
 function isbg(img){
  return (img.height>$ctx.canvas.height)?true:false
 }
@@ -26,6 +35,7 @@ function dimage(d,str){
  if(isbg(img)){
   let w=$ctx.canvas.width,h=$ctx.canvas.height
   $ctx.drawImage(img,0,0,w,h)
+  setstyle('dimage',$ctx)
   $ctx.fillText(str,$fontb,$fontb)
   return;
  }
