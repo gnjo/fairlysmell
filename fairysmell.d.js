@@ -5,7 +5,8 @@ var
 ,$fontb=1.2*$gain //big
 ,$fonts=0.9*$gain //small
 ,$layerinfo
-,$wirew=3 //wirewidth
+,$wireb=3 //wirewidth big
+,$wires=2
 ,$color1='white' //
 ,$color2='black' 
 ,$color3='#0097a7' //cyberblue
