@@ -11,7 +11,8 @@ $waitcount=0  //if $waitcount>0, keyblock
 ,$mesbuffer=[]
 ,$hint
 ,$sel
-,$seln
+,$seln //select number
+,$selname //select firstline
 ,$map
 ,$x
 ,$y
