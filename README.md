@@ -26,6 +26,7 @@ function firlysmell(){
 }
 //
 function flowmes(mes){
+ if(!mes) mes="\n\n\n"//clear
  return mes.split('\n').map(d=>$mesbuffer.push(d))
 }
 function draw(timestamp){
