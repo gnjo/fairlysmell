@@ -16,6 +16,7 @@ function setstyle(name,ctx){
    ctx.font = $fontb+"px monospace";
    //ctx.textAlign = "left";
    //ctx.textBaseline = "top";
+   return;
   }
 }
 
