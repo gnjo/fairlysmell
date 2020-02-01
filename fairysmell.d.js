@@ -33,8 +33,8 @@ function getlayerinfo(name){
  }
  info.dcanvas=f( {x:0,y:0,x1:35,y1:24} )
  info.dimage=f( {x:11,y:7,x1:15,y1:16} )
- info.dmes=f( {x:0,y:0,x1:26,y1:6} )
- info.dsel=f( {x:0,y:11,x1:10,y1:23} )
+ info.dmessage=f( {x:0,y:0,x1:26,y1:6} )
+ info.dselect=f( {x:0,y:11,x1:10,y1:23} )
  info.dhint=f( {x:0,y:23,x1:26,y1:24} )
  info.dwire=f( {x:0,y:0,x1:26,y1:23} )
  info.dmap=f( {x:27,y:0,x1:35,y1:23} )
@@ -87,6 +87,10 @@ function dimage(d,str){
 function dwire(fmap){
 }
 function dhint(str){
+ let info=getlayerinfo('dhint')
+ let x=info.x,y=info.y;
+ setstyle('dhint',$ctx)
+ $ctx.fillText(str,x,y) 
 }
 function dparty(party,n){
 }
@@ -94,12 +98,29 @@ function dmap(map,x,y,z,v){
  //N top map
 }
 function dmessage(ary){
+ let info=getlayerinfo('dmessage')
+ let x=info.x,y=info.y;
+ setstyle('dmessage',$ctx)
+ ary.map((d,i)=>{
+  $ctx.fillText(d,x+$fontb*i,y) 
+ })
+ //if $mesbuffer is mark press?
 }
-function dselect(sel,n){
+function dselect(sel,n,head){
+ if(n<0)return;
+ if(!sel)return;
+ let cursor='>',max=6,ary=sel.slice(n,n+max),info=getlayerinfo('dselect')
+ setstyle('dselect')
+ ary=ary.unshift(head+''+n)
+ ary.map((d,i)=>{
+  let c=(c===0)?'':(i==n)?cursor:' '
+  $ctx.fillText(c+d,info.x+$fontb + $fontb*i,info.y)  
+ })
 }
-function dkey(k){
- let x=$ctx.canvas.width-$fontb,y=$ctx.canvas.width-$fontb;
+function dkey(str){
+ let info=getlayerinfo('dkey')
+ let x=info.x,y=info.y;
  setstyle('dkey',$ctx)
- $ctx.fillText(k,x,y)
+ $ctx.fillText(str,x,y)
 }
 
