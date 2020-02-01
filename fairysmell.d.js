@@ -11,7 +11,7 @@ var
 ,$color5='rgba(0, 0, 0, 0.76)' //#000000c1 shadow
 
 function setstyle(name,ctx){
-  if(name==='dimage'){
+  if(name==='dimage'||name==='dkey'){
    ctx.fillStyle = $color3
    ctx.font = $fontb+"px monospace";
    //ctx.textAlign = "left";
@@ -41,9 +41,28 @@ function dimage(d,str){
   return;
  }
  //center
- let a=getcenterize(img),x=a[0],y=a[1],y1=a[1]-$fontb
+ let a=getcenterize(img),x=a[0],y=a[1],y1=y-$fontb
  $ctx.drawImage(img,x,y)
  setstyle('dimage',$ctx) 
  $ctx.fillText(str,x,y1)
  return
 }
+function dwire(fmap){
+}
+function dhint(str){
+}
+function dparty(party,n){
+}
+function dmap(map,x,y,z,v){
+ //N top map
+}
+function dmessage(ary){
+}
+function dselect(sel,n){
+}
+function dkey(k){
+ let x=$ctx.canvas.width-$fontb,y=$ctx.canvas.width-$fontb;
+ setstyle('dkey',$ctx)
+ $ctx.fillText(k,x,y)
+}
+
